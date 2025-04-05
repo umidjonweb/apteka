@@ -1,0 +1,72 @@
+i {
+    @apply !text-xl;
+}
+
+
+@layer base {
+    @font-face {
+        font-family: 'montserrat-700';
+        src: url('/assets/font/Montserrat-Bold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'montserrat-600';
+        src: url('/assets/font/Montserrat-SemiBold.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'montserrat-500';
+        src: url('/assets/font/Montserrat-Medium.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'montserrat-400';
+        src: url('/assets/font/Montserrat-Regular.ttf') format('truetype');
+    }
+}
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+.el-button--primary  {
+   --el-button-hover-bg-color: #209613 !important;
+   --el-button-border-color: #209613 !important;
+   --el-button-hover-border-color: #209613 !important;
+}
+.el-form--label-top .el-form-item .el-form-item__label {
+    margin-bottom: 0px !important;
+    font-size: 12px !important;
+    font-family: 'montserrat-500';
+    color: black;
+}
+button{
+   cursor: pointer !important;
+}
+
+.el-input__wrapper {
+    border-radius: 10px !important;
+    height: 46px !important;
+    background-color: #F2F4F7 !important;
+}
+
+.el-select {
+    width: 100%;
+}
+
+.el-input__inner {
+    color: black !important;
+    font-family: 'montserrat-500';
+}
+
+.el-button {
+    padding: 18px 40px !important;
+    border-radius: 14px 0px 14px 0px !important;
+    font-family: 'montserrat-600';
+    height: 48px !important;
+    cursor: pointer !important;
+}
+
+.el-input {
+    height: 42px;
+}

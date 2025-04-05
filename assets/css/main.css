@@ -1,0 +1,70 @@
+@import "./custom.css";
+@import "./element.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+	/* margin: 0 auto; */
+	/* margin: 0px 15px;  */
+	max-width: 1306px !important;
+	width: 100%;
+	padding: 0px 15px;
+
+	@media (max-width: 1000px) {
+		padding: 0px 15px;
+	}
+}
+@media (max-width: 1024px) {
+	.widget-visible iframe {
+		width: 50px !important;
+		height: 50px !important;
+		min-width: 50px !important;
+		min-height: 50px !important;
+		bottom: 80px !important;
+	}
+	.tawk-min-container .tawk-button-circle.tawk-button-large {
+		width: 50px !important;
+		height: 50px !important;
+	}
+   
+	.tawk-min-container
+		.tawk-button-circle.tawk-button-large
+		.tawk-min-chat-icon {
+		width: 24px !important;
+		height: 24px !important;
+	}
+}
+
+.el-popper {
+	z-index: 99999999 !important;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+body {
+	/* background: black; */
+	color: black;
+	font-family: "montserrat-400", sans-serif;
+}
+
+a,
+p {
+	color: black;
+	font-size: 15px;
+	font-family: "montserrat-400";
+}
+
+a {
+	font-family: "montserrat-500";
+}
+
+.webkit_scroll_none::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+.el-overlay {
+	z-index: 999999 !important;
+}
