@@ -256,6 +256,9 @@
    "IN_MODERATION": "Moderatsiyada",
    "ACCEPTED": "E'lon qilingan",
    "success": "Muvofaqiyatli yuborildi",
-   "sendPhone": "Telefon nomerni to'liq kiriting"
+   "sendPhone": "Telefon nomerni to'liq kiriting",
+   "con": "Biz bilan bog'lanish",
+   "price": "Narxi"
+
 
 }

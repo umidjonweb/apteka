@@ -32,14 +32,22 @@ const _langOptions = ref([
 	},
 ]);
 
+
 function handleLanguage() {
-	locale.value = _lang.value;
+  locale.value = _lang.value; // i18n `locale` ni yangilash
+  // API so'rovlarini yangilash uchun Router orqali qayta yuklash
+   Router.push({ path: Router.currentRoute.value.fullPath, query: { lang: _lang.value } });
+   Router.go(0)
 }
+
 watch(
 	() => Router,
 	() => (_openMenu.value = false),
 	{ deep: true }
 );
+watch(_lang, () => {
+  handleLanguage();
+});
 </script>
 
 <template>
@@ -87,7 +95,7 @@ watch(
 						<button
 							class="max-[600px]:inline hidden border border-primary/70 px-4 py-1 text-white bg-primary"
 						>
-							{{ $t("connection") }}
+							{{ $t("con") }}
 						</button>
 					</a>
 				</div>
@@ -112,14 +120,9 @@ watch(
 				<button
 					class="border-2 text-green bg-white text-sm hover:bg-green transition-all hover:text-white border-green py-2 rounded-3xl px-3 max-[600px]:hidden font-inter-500 max-md:px-4 max-md:py-2 max-[500px]:hidden inline"
 				>
-					{{ $t("Biz bilan bog'lanish") }}
+					{{ $t("con") }}
 				</button>
-				<!-- <a @click="$router.push('/#connection')" href="#connection">
-					<button class="max-[600px]:inline hidden border border-danger/70 rounded-full w-10 h-10 p-1.5 bg-danger"
-					>
-						<img class="w-6 h-6" src="@/assets/img/phone.svg" alt="" />
-					</button>
-				</a> -->
+			
 				<img
 					@click="_openMenu = true"
 					class="hidden max-md:block cursor-pointer"

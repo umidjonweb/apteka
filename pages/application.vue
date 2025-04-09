@@ -4,10 +4,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import { getMedical_API, type MedicalModel } from "~/services/medical";
-const modules = [Navigation, Pagination];
+const modules = [Navigation, Pagination, Autoplay];
 const _items = ref<MedicalModel[]>([]);
 
 async function getMedical() {
@@ -20,16 +20,39 @@ getMedical();
 
 <template>
 	<div class="container !mb-40">
-		<h1 class="text-[42px] font-montserrat-600">Mavsumiy dorilar</h1>
+		<h1 class="text-[42px] max-sm:text-3xl font-montserrat-600">
+			Mavsumiy dorilar
+		</h1>
 		<div>
 			<Swiper
 				:modules="modules"
-				:slides-per-view="4"
 				:navigation="true"
-				class="mySwiper !py-10 !px-10"
+				class="mySwiper !py-10 !px-10 max-sm:!px-0"
 				:spaceBetween="20"
 				:pagination="{
 					clickable: true,
+				}"
+				:autoplay="{
+					delay: 3000,
+					disableOnInteraction: false,
+				}"
+				:breakpoints="{
+					'950': {
+						slidesPerView: 4,
+						spaceBetween: 15,
+					},
+					'650': {
+						slidesPerView: 3,
+						spaceBetween: 15,
+					},
+					'530': {
+						slidesPerView: 2,
+						spaceBetween: 15,
+					},
+					'370': {
+						slidesPerView: 1.5,
+						spaceBetween: 15,
+					},
 				}"
 			>
 				<SwiperSlide
@@ -66,6 +89,9 @@ getMedical();
 		font-weight: 900;
 		color: gray !important;
 	}
+	@media (max-width: 500px) {
+		display: none;
+	}
 }
 .swiper-button-next {
 	position: absolute;
@@ -84,6 +110,9 @@ getMedical();
 		font-size: 12px;
 		font-weight: 900;
 		color: gray !important;
+	}
+   @media (max-width: 500px) {
+		display: none;
 	}
 }
 </style>

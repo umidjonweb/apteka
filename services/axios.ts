@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { _lang } from '~/i18n'
 export const axiosInstance = axios.create({
    baseURL: `${import.meta.env.VITE_BASE_URL}/`,
    // baseURL: "http://192.168.1.39:8080/",
@@ -58,7 +58,17 @@ axiosInstance.interceptors.request.use(
 
       }
 
-      config.url = config.url.replace('/NO_TOKEN', '')
+     
+      console.log('config.url.', config.url);
+      
+      // `/api/...` dan boshlab yozilgan URL bo‘lsa, uni `/uz/api/v1/...` yoki `/ru/api/v1/...` ga aylantiramiz
+      if (config.url.startsWith('/api')) {
+         console.log('1111');
+         
+        config.url = config.url.replace('/api', `/${_lang.value}/api`)
+      }
+      console.log('config', config);
+      
       return config
    },
    (error) => {
